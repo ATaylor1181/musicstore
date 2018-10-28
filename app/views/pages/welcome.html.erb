@@ -1,7 +1,50 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Music Store</title>
+
+</head>
+
+<body>
+    
+    <div class="navbar">
+        <a href="#section-a">Buying</a>
+        <a href="#section-b">Selling</a>
+        <a href="#section-c">Account</a>
+        <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+        <% end %>
+    </div>
 <h1>MUSIC STORE</h1>
 
-<nav>
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
-<% end %>
-</nav>
+    <section id="section-b" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Sales</h2>
+                <ul>
+                <li>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">Buying</h3>
+                                <ul>
+                                <li>Woodwind</li>
+                                <li>Percussion</li>
+                                <li>Brass</li>
+                                <li>Strings</li>
+                                <li>Keyboard</li>
+                                </ul>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">Selling</h3>
+                        </div>
+                    </div>
+                </li>
+
+
+</body>
