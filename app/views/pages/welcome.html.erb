@@ -10,7 +10,13 @@
 <body>
     
     <div class="navbar">
-        <a href="#section-c">Account</a>
+        <% if user_signed_in? %>
+        <% else %>
+            <%= link_to('Login', new_user_session_path)  %>  
+        <% end %>
+        <% if user_signed_in? %>
+        <%= link_to 'Sell', products_path %>
+        <% end %>
         
         <% if user_signed_in? %>
         Welcome, <%= current_user.email %>
