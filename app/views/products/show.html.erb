@@ -21,7 +21,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_currency(@product.price/100.0) %>
 </p>
 
 <%= form_tag charges_path do %>
