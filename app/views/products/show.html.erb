@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-<strong>This product was created by:</strong>
-<%= @product.user.email %>
+<p><strong>
+      <% if user_signed_in? %>
+      This product is being sold by, <%= @product.user.username %>
+      <% end %>  
+    </strong>
 </p>
 
 <%= image_tag @product.image, width: '300' %>
