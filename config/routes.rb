@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :charges
   get 'pages/welcome'
   resources :products
   root 'pages#welcome'
