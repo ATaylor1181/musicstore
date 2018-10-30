@@ -24,6 +24,13 @@
   <%= number_to_currency(@product.price/100.0) %>
 </p>
 
+<p>
+<strong>Category:</strong>
+<%= @product.category %>
+</p>
+
+<p>This product is being sold from <%= @product.city %>, in <%= @product.state %></p>
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
