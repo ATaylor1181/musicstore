@@ -24,13 +24,12 @@
   <%= @product.price %>
 </p>
 
-subcategory
 <p>
 <strong>Category:</strong>
 <%= @product.category %>
 </p>
 
-<p>This product is being sold from <% @product.city %>, in <% @product.state %></p>
+<p>This product is being sold from <%= @product.city %>, in <%= @product.state %></p>
 
 <%= form_tag charges_path do %>
   <article>
