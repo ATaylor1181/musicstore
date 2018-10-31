@@ -71,3 +71,5 @@ gem "stripe", "~> 3.28"
 
 
 gem "aws-sdk-s3", require: false
+
+gem "recaptcha", "~> 4.12"

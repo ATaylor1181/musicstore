@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products
   root 'pages#welcome'
   devise_for :users, controllers: {
+    registrations: "users/registrations",
     sessions: 'users/sessions'
   }
 
