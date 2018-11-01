@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <body style="">
+    <h1>You have sold an Item!</h1>
+    <p>
+      Your product: <%=@product.title%>, has sold.<br>
+      <%=number_to_currency(@product.price/100.0)%> has been sent to you.
+    </p>
+    <p>Please send your item to the purchaser now.</p>
+  </body>
+</html>
