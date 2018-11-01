@@ -2,7 +2,7 @@
 
 <p><strong>
       <% if user_signed_in? %>
-      This product is being sold by, <%= @product.user.username %>
+      This product is being sold by, <%= @product.user.username.capitalize %>
       <% end %>  
     </strong>
 </p>
