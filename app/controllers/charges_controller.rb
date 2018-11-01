@@ -19,6 +19,7 @@ class ChargesController < ApplicationController
     )
 
     ProductMailer.with(user: current_user, product: @product).new_purchase.deliver_now
+    ProductMailer.with(product: @product).sold_item.deliver_now
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
