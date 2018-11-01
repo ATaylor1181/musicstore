@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  invisible_captcha only: [:create, :update], honeypot: :phone, on_spam: :your_spam_callback_method
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -62,6 +63,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
+
+  def your_spam_callback_method
+    redirect_to root_path
+  end
+
   def check_captcha
     unless verify_recaptcha
       self.resource = resource_class.new sign_up_params
