@@ -63,6 +63,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    @q = "%#{params[:query]}%"
+    @products = Product.where("title LIKE ? or description LIKE ? or category LIKE ?", @q, @q, @q)
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -76,8 +82,7 @@ class ProductsController < ApplicationController
       result =  params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :state)
       result[:price] = result[:price].to_f * 100.0
       result
-
-      
-
     end
+
+    
 end

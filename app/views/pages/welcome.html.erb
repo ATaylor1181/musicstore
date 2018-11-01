@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+
     <title>Music Store</title>
 
 </head>
@@ -21,6 +22,10 @@
         <% if user_signed_in? %>
         Welcome, <%= current_user.email %>
             (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) 
+        <% end %>
+
+        <%= form_tag search_products_path do %>
+        <input class="search full-width" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off" >
         <% end %>
     </div>
 <h1>MUSIC STORE</h1>
