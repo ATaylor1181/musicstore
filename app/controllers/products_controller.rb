@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
 
   def search
     @q = "%#{params[:query]}%"
-    @products = Product.where("title LIKE ? or description LIKE ? or category LIKE ?", @q, @q, @q)
+    @products = Product.where("title iLIKE ? or description iLIKE ? or category iLIKE ? or city iLike ? or state iLike ?", @q, @q, @q, @q, @q)
     render 'index'
   end
 
