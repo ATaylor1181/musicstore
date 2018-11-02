@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
 
     <title>Music Store</title>
+       
 
 </head>
 
@@ -28,7 +29,23 @@
         <input class="search full-width" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off" >
         <% end %>
     </div>
-<h1>MUSIC STORE</h1>
+
+    <section id="header" class="grid">
+        <div class="content-wrap">
+        <ul>
+        <li>
+            <div class="card">
+            <%= render "note" %>
+            </div>
+        </li>
+        <li>
+        <div class="card">
+            <h1>MUSIC STORE</h1>
+        </div>
+        </li>
+        </ul>
+        </section>
+
 
     <section id="section-b" class="grid">
             <div class="content-wrap">

@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_11_02_003627) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_003627) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "name"
+    t.string "phone"
     t.string "street_address"
     t.string "postcode"
     t.string "city"
