@@ -37,13 +37,18 @@
   </div>
 
   <div class="field">
-  <%= form.label :city %>
-  <%= form.text_field :city %>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
   </div>
 
   <div class="field">
-  <%= form.label :state %>
-  <%= form.text_field :state %>
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sell_internationally, 'Do you want to sell this product internationally?' %> <br />
+    <%= form.check_box :sell_internationally %> <br />
   </div>
 
   <div class="actions">
