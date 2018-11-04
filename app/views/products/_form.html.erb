@@ -37,13 +37,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.hidden_field :city, value: current_user.city %>
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.hidden_field :country, value: current_user.country %>
   </div>
 
   <div class="field">
