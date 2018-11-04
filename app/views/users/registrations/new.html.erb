@@ -32,21 +32,21 @@
   </div>
 
   <div class="field">
-<%= f.label :city %><br />
-<%= f.text_field :city, autofocus: true, autocomplete: "city" %>
-</div>
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+  </div>
 
   <div class="field">
-  <%= f.label :postcode %><br />
-  <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
-</div>
+    <%= f.label :postcode %><br />
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
+  </div>
 
-<div class="field">
-<%= f.label :country %><br />
-<%= f.text_field :country, autofocus: true, autocomplete: "country" %>
-</div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.select :country, User::COUNTRIES %>
+  </div>
 
-<br>
+  <br>
 
   <div class="field">
     <%= recaptcha_tags %>
