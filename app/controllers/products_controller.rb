@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.category_id = Subcategory.find_by_instrument(@product.category).id
 
     respond_to do |format|
       if @product.save

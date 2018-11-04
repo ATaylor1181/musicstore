@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_041020) do
+ActiveRecord::Schema.define(version: 2018_11_04_144707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,12 +64,13 @@ ActiveRecord::Schema.define(version: 2018_11_02_041020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "category"
-    t.string "subcategory"
     t.string "city"
     t.string "country"
     t.boolean "sell_internationally", default: false
     t.datetime "date_sold"
+    t.bigint "category_id"
+    t.string "category"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_041020) do
 
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users", column: "buyer_id"
+  add_foreign_key "products", "subcategories", column: "category_id"
   add_foreign_key "products", "users"
   add_foreign_key "subcategories", "categories"
 end
