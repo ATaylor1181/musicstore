@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, ['String', 'Woodwind', 'Brass', 'Percussion', 'Keyboard']%>
+    <%= form.select :category, Product::CATEGORY_LIST %>
   </div>
 
   <div class="field">
