@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_11_04_144707) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,12 +64,12 @@ ActiveRecord::Schema.define(version: 2018_11_04_144707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "category"
     t.string "city"
     t.string "country"
     t.boolean "sell_internationally", default: false
     t.datetime "date_sold"
     t.bigint "category_id"
-    t.string "category"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end

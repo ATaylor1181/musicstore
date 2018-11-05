@@ -1,0 +1,13 @@
+#header .content-wrap {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 2em 1em;
+}
+
+#header .li {
+    margin-bottom: 1em;
+    background: #666;
+    
+}
+
