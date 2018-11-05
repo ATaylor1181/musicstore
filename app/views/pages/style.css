@@ -1,0 +1,30 @@
+#header .grid {  
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 0.2fr;
+    height: 30vh;
+    background: #fff;
+  }
+
+#header .box {
+
+}
+  
+#header .title {
+    font-size: 80px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    grid-row: 2 / 5;
+    grid-column: 2 / 3;
+  }
+  
+#header .note {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -31,20 +31,25 @@
     </div>
 
     <section id="header" class="grid">
-        <div class="content-wrap">
-        <ul>
-        <li>
-            <div class="card">
-            <%= render "note" %>
-            </div>
-        </li>
-        <li>
-        <div class="card">
-            <h1>MUSIC STORE</h1>
-        </div>
-        </li>
-        </ul>
-        </section>
+       <div class="container">
+  <div class="grid">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box emoji"><%= render 'note' %></div>
+    <div class="box title">Don't Fret</div>
+    <div class="box emoji"><%= render 'note' %></div>
+    <div class="box emoji"><%= render 'note' %></div>
+    <div class="box emoji"><%= render 'note' %></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</div>
+
+    </section>
 
 
     <section id="section-b" class="grid">
