@@ -6,4 +6,6 @@ class PagesController < ApplicationController
     render params[:page]
   end
 
+  def display
+  end
 end
