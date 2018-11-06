@@ -30,39 +30,42 @@ $wobbleStrength: 10;
   top: 0%;
   width: $noteWidth + px;
   height: $noteHeight + px;
-  animation: wobble 1s 5;
+  animation: wobble 5s infinite;
   transform-origin: 50% 100%;
 }
 @keyframes wobble {
   0% {
     transform: rotateZ(0deg);
   }
-  10% {
+  2% {
     transform: rotateZ((0 - $wobbleStrength) + deg);
   }
-  20% {
+  4% {
     transform: rotateZ((0 + $wobbleStrength) + deg);
   }
-  30% {
+  6% {
     transform: rotateZ((0 - ($wobbleStrength / 2)) + deg);
   }
-  40% {
+  8% {
     transform: rotateZ((0 + ($wobbleStrength / 2)) + deg);
   }
-  50% {
+  10% {
     transform: rotateZ((0 - ($wobbleStrength / 3)) + deg);
   }
-  60% {
+  12% {
     transform: rotateZ((0 + ($wobbleStrength / 3)) + deg);
   }
-  70% {
+  14% {
     transform: rotateZ((0 - ($wobbleStrength / 4)) + deg);
   }
-  80% {
+  16% {
     transform: rotateZ((0 + ($wobbleStrength / 4)) + deg);
   }
-  90% {
+  18% {
     transform: rotateZ((0 - ($wobbleStrength / 5)) + deg);
+  }
+  20% {
+    transform: rotateZ(0deg);
   }
   100% {
     transform: rotateZ(0deg);
