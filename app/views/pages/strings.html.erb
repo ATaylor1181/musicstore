@@ -1,5 +1,16 @@
-<h1>This is the page for strings</h1>
-
-# ['Banjo', 'Cello', 'Cittern', 'Guitar', 'Harp', 'Lute', 'Upright Bass', 'Viola', 'Violin']
+<h1>Strings Family</h1>
 
 <%= link_to 'Home', root_path %>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% Subcategory.where(category_id: '1').each do |name|%>
+      <tr>
+        <td><%= link_to name.instrument, "/strings/#{name.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

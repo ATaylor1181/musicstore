@@ -1,6 +1,16 @@
-<h1>This is the brass page</h1>
-
-# Brass Instruments
-# ['Bugle', 'Cornet', 'Euphonium', 'Flugelhorn', 'Helicon', 'Horn', 'Mellophone', 'Trombone', 'Trumpet', 'Tuba']
+<h1>Brass Family</h1>
 
 <%= link_to 'Home', root_path %>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% Subcategory.where(category_id: '4').each do |name|%>
+      <tr>
+        <td><%= link_to name.instrument, "/brass/#{name.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

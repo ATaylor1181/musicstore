@@ -1,5 +1,16 @@
-<h1>This is the Percussion page</h1>
-
-# ['Acoustic Drum Set', 'Bells', 'Cymbals' 'Castanets', 'Congas', 'Electric Drum Set', 'Frame Drums', 'Hand Drums', 'Maracas', 'Xylophone']
+<h1>Percussion Family</h1>
 
 <%= link_to 'Home', root_path %>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% Subcategory.where(category_id: '3').each do |name|%>
+      <tr>
+        <td><%= link_to name.instrument, "/percussion/#{name.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
