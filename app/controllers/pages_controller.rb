@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def display
+    @products = Product.all
   end
 end
