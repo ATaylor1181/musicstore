@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:profile]
 
   # GET /products
   # GET /products.json
@@ -20,6 +21,10 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+  end
+
+  def profile
+    @products = Product.all
   end
 
   # POST /products
@@ -74,6 +79,12 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def check_user
+      if "products/profile/#{current_user.id}" != "products/profile/#{params[:id]}"
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
