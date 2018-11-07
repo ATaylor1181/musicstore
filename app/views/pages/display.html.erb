@@ -1,37 +1,32 @@
+<thead>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</thead>
+
 <h1><%= Subcategory.find(params[:category_id]).instrument %></h1>
 
-<% if @products.where(category_id:params[:category_id]).count != 0 %>
-    <table>
-        <thead>
-            <tr>
-            <th>Title</th>
-            <th>Picture</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th colspan="3"></th>
-            </tr>
-        </thead>
+<tbody>
+<% @products.where(category_id:params[:category_id]).each do |product| %>
 
-        <tbody>
-        <% @products.where(category_id:params[:category_id]).each do |product| %>
-            <tr>
-                <td><%= product.title %></td>
-                <td><%= product.description %></td>
-                <td><a href="products/<%= product.id %>"><%= image_tag product.image, width: '100' %></a></td>
-                <td><%= number_to_currency(product.price/100.0) %></td>
-                <td><%= link_to 'Show', product %></td>
-                <% if user_signed_in? %>
-                    <% if current_user.id == product.user_id %>
-                        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-                        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    <% end %>
-                <% end %>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-<% else %>
-    <p><strong>There are no listings for this Instrument.</strong></p>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-3 col-sm-4">
+	<div class="wrimagecard wrimagecard-topimage">
+          <a href="#">
+          <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+            <center><a href="/products/<%=product.id%>"><%= image_tag product.image%></a></center>
+          </div>
+          <div class="wrimagecard-topimage_title">
+            <h4><%= product.title %>
+            <div class="pull-right badge"><%= number_to_currency(product.price/100.0) %></div></h4>
+          </div>
+        </a>
+      </div>
+      </div>
+
 <% end %>
-
-<%= link_to 'Back', :back %>
+</tbody>
