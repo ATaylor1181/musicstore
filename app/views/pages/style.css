@@ -3,6 +3,10 @@
   src: url('https://fonts.googleapis.com/css?family=Pacifico');
 }
 
+html {
+  overflow-y: scroll;
+}
+
 #header .grid {  
     z-index: -1;
     display: grid;
@@ -66,6 +70,7 @@
   /* Buying Navbar */
 
   .navbar {
+    z-index: 2;
     overflow: hidden;
     background-color: #333;
     font-family: 'Pacifico', cursive;
@@ -76,15 +81,18 @@
   }
 
   .navbar a {
+    z-index: 1;
     float: center;
     font-size: 16px;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px;
     text-decoration: none;
+    position: relative;
   }
 
-  .strings_dropdown, .woodwind_dropdown, .percussion_dropdown,
+
+   .strings_dropdown, .woodwind_dropdown, .percussion_dropdown,
    .brass_dropdown, .keyboard_dropdown {
     float: center;
     overflow: hidden;
@@ -97,7 +105,7 @@
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 14px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
