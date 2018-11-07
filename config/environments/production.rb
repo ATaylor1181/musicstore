@@ -3,6 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  config.serve_static_assets = true
 
   config.assets.initialize_on_precompile = false
 
