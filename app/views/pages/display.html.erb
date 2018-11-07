@@ -10,6 +10,7 @@
 <tbody>
 <% @products.where(category_id:params[:category_id]).each do |product| %>
 
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <div class="container-fluid">
 	<div class="row">
@@ -26,7 +27,6 @@
         </a>
       </div>
       </div>
+
 <% end %>
 </tbody>
-
-           

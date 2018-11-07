@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:profile]
 
   # GET /products
   # GET /products.json
@@ -20,6 +21,10 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+  end
+
+  def profile
+    @products = Product.all
   end
 
   # POST /products
@@ -59,7 +64,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,11 +81,17 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def check_user
+      if "products/profile/#{current_user.id}" != "products/profile/#{params[:id]}"
+        redirect_to root_path
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally)
+      params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally, :condition)
       
-      result =  params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally)
+      result =  params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally, :condition)
       result[:price] = result[:price].to_f * 100.0
       result
     end

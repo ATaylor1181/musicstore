@@ -1,22 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p><strong>
-      <% if user_signed_in? %>
-      This product is being sold by, <%= @product.user.username.capitalize %>
-      <% end %>  
-    </strong>
-</p>
+<h1>
+  <%= @product.title %>
+</h1>
 
 <%= image_tag @product.image, width: '300' %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
+<p><strong>
+      <% if user_signed_in? %>
+      This product is being sold by: <%= @product.user.username.capitalize %>
+      <% end %>  
+    </strong>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @product.condition %>
 </p>
 
 <p>
@@ -31,51 +33,60 @@
 
 <p>This product is being sold from <%= @product.city %>, in <%= @product.country %></p>
 
-<% if @product.sell_internationally == false %>
-  <% if current_user.country != @product.country %>
-    <p><strong>Sorry, This Product does not ship to your Country.</strong></p>
-  <% else %>
-    <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
+<% if user_signed_in? %>
+  <% if current_user.id != @product.user_id %>
+    <% if @product.sell_internationally == false %>
+      <% if current_user.country != @product.country %>
+        <p><strong>Sorry, This Product does not ship to your Country.</strong></p>
+      <% else %>
+        <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
+
+        <%= hidden_field_tag(:product_id, @product.id) %>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @product.title %>"
+            data-amount="<%= @product.price %>"
+            data-currency="AUD"
+            data-locale="auto"></script>
+        <% end %>
       <% end %>
-    </article>
+    <% else %>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
 
-    <%= hidden_field_tag(:product_id, @product.id) %>
+        <%= hidden_field_tag(:product_id, @product.id) %>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-description="<%= @product.title %>"
-        data-amount="<%= @product.price %>"
-        data-currency="AUD"
-        data-locale="auto"></script>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @product.title %>"
+            data-amount="<%= @product.price %>"
+            data-currency="AUD"
+            data-locale="auto"></script>
+        <% end %>
     <% end %>
   <% end %>
 <% else %>
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-      <% end %>
-    </article>
-
-    <%= hidden_field_tag(:product_id, @product.id) %>
-
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-description="<%= @product.title %>"
-        data-amount="<%= @product.price %>"
-        data-currency="AUD"
-        data-locale="auto"></script>
-    <% end %>
+  <p><strong>Please sign in to buy this Product.</strong></p>
 <% end %>
 
-<% if current_user.id == @product.user_id %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% if user_signed_in? %>
+  <% if current_user.id == @product.user_id %>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+  <% end %>
 <% end %>
 <%= link_to "back", :back %>
+
