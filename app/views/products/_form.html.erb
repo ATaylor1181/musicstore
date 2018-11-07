@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :condition %>
+    <%= form.select :condition, ['New', 'Used - Like New', 'Used - Very Good', 'Used - Good', 'Used - Acceptable'] %>
+  </div>
+
+  <div class="field">
     <%= form.label :category %>
     <%= form.select :category, Product::CATEGORY_LIST %>
   </div>

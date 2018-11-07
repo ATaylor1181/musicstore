@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -78,9 +78,9 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally)
+      params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally, :condition)
       
-      result =  params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally)
+      result =  params.require(:product).permit(:title, :description, :price, :image, :category, :subcategory, :city, :country, :sell_internationally, :condition)
       result[:price] = result[:price].to_f * 100.0
       result
     end
