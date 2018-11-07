@@ -1,1 +1,27 @@
-<h1>Hello</h1>
+<h1>Current Listings</h1>
+<%# Put an if function here that displays "no Items" if user has no listed items %>
+
+<% if @products.where(user_id:params[:id]).count != 0 %>
+    <table>
+        <tbody>
+            <% @products.where(user_id:params[:id]).each do |product| %>
+                <tr>
+                    <td><%= product.title %></td>
+                    <td><%= product.description %></td>
+                    <td><a href="products/<%= product.id %>"><%= image_tag product.image, width: '100' %></a></td>
+                    <td><%= number_to_currency(product.price/100.0) %></td>
+                    <% if user_signed_in? %>
+                        <% if current_user.id == product.user_id %>
+                            <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <p><strong>You have no Current Listings.</strong></p>
+<% end %>
+
+<%= link_to 'Sell New Item', new_product_path %>

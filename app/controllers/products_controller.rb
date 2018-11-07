@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def profile
+    @products = Product.all
   end
 
   # POST /products
