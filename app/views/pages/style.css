@@ -23,7 +23,7 @@ html {
   
 #header .title {
     z-index: 0;
-    font-size: 150px;
+    font-size: 10vw;
     text-shadow: 4px 4px 4px #aaa;
     display: flex;
     justify-content: start;
