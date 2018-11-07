@@ -33,9 +33,21 @@ class ChargesController < ApplicationController
     @order.country = current_user.country
     @order.price = @product.price
     @order.save
+
+    # @order.errors
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+
+  # def set_order
+  #   @order = Order.find(params[:id])
+  # end
+
+  # def order_params
+  #   params.require(:order).permit(:buyer_id, :product_id, :date_sold, :street_address, :postcode, :city, :country, :price)
+  # end
 end
