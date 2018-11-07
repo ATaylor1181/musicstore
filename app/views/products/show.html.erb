@@ -34,8 +34,8 @@
 <p>This product is being sold from <%= @product.city %>, in <%= @product.country %></p>
 
 <% if user_signed_in? %>
-  <% if current_user.id != @product.user_id %>
-    <% if @product.date_sold == nil %>
+  <% if @product.date_sold == nil %>
+    <% if current_user.id != @product.user_id %>
       <% if @product.sell_internationally == false %>
         <% if current_user.country != @product.country %>
           <p><strong>Sorry, This Product does not ship to your Country.</strong></p>
@@ -79,9 +79,9 @@
               data-locale="auto"></script>
           <% end %>
       <% end %>
-    <% else %>
-    <p><strong>Product has been sold on: <%= @product.date_sold.strftime("%d/%m/%Y") %></strong></p>
     <% end %>
+    <% else %>
+      <p><strong>Product has been sold on: <%= @product.date_sold.strftime("%d/%m/%Y") %></strong></p>
   <% end %>
 <% else %>
   <p><strong>Please sign in to buy this Product.</strong></p>
