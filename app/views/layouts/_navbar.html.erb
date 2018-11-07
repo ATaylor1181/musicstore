@@ -1,0 +1,30 @@
+    <div class="header_navbar">
+        <div><% if user_signed_in? %>
+        <% else %>
+            <%= link_to('Login', new_user_session_path)  %>  
+        <% end %>
+        </div>
+
+        <div><% if user_signed_in? %>
+        Welcome, <%= current_user.name %>
+            (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) 
+        <% end %>
+        </div>
+
+        <div>
+        <% if user_signed_in? %>
+        <%= link_to 'Sell Your Instrument or Accessory', new_product_path %>
+        <% end %>
+        </div>
+        
+        <div>
+        <% if user_signed_in? %>
+        <%= link_to 'Edit Your Details', edit_user_registration_path %>
+        <% end %>
+        </div>
+
+        <div><%= form_tag search_products_path do %>
+        <input class="search full-width" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off" >
+        <% end %>
+        </div>
+    </div>
