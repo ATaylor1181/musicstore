@@ -170,6 +170,7 @@ html {
   }
   .wrimagecard-topimage_header{
   padding: 20px;
+  max-width: 100%;
   }
   a.wrimagecard:hover, .wrimagecard-topimage:hover {
       box-shadow: 2px 4px 8px 0px rgba(46,61,73,0.2);
@@ -183,7 +184,7 @@ html {
       padding: 20px 24px;
       height: 80px;
       padding-bottom: 0.75rem;
-      position: relative
+      position: relative;
   }
   .wrimagecard-topimage a {
       border-bottom: none;
@@ -191,4 +192,3 @@ html {
       color: #525c65;
       transition: color 0.3s ease;
   }
- 
