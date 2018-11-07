@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2018_11_07_004558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "category"
     t.string "city"
     t.string "country"
     t.boolean "sell_internationally", default: false
     t.datetime "date_sold"
     t.bigint "category_id"
-    t.string "category"
     t.string "condition"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_004558) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "name"
+    t.string "phone"
     t.string "street_address"
     t.string "postcode"
     t.string "city"
