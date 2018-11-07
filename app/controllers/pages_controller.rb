@@ -6,4 +6,7 @@ class PagesController < ApplicationController
     render params[:page]
   end
 
+  def display
+    @products = Product.all
+  end
 end

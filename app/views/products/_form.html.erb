@@ -27,13 +27,22 @@
   </div>
 
   <div class="field">
+    <%= form.label :condition %>
+    <%= form.select :condition, ['New', 'Used - Like New', 'Used - Very Good', 'Used - Good', 'Used - Acceptable'] %>
+  </div>
+
+  <div class="field">
     <%= form.label :category %>
     <%= form.select :category, Product::CATEGORY_LIST %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <% if @product.price == nil %>
+      <%= form.text_field :price %>
+    <% else %>
+      <%= form.text_field :price, value: @product.price/100 %>
+    <% end %>
   </div>
 
   <div class="field">

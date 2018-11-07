@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get '/:page' => 'pages#show'
   post 'products/search' => 'products#search', as: 'search_products'
+  get '/:page/:category_id' => 'pages#display'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
