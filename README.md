@@ -127,7 +127,7 @@ In our project we will be creating a two-sided marketplace that sells musical in
 For now the closest network infrastructure would be either Ebay or Gumtree.
 
 **5. Identify and describe the software to be used in your App.**  
-
+We use Ruby on Rails to help us build our marketplace app. Ruby on Rails allows us to use Ruby in our HTML code to make our website. By using Ruby code, we can use code to pull data from our database, and easily display that on our webpage, and when we update our database, the webpage updates itself.
 
 **6. Identify the database to be used in your App and provide a justification for your choice.**  
 ![ERD Diagram]()  
