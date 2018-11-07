@@ -22,9 +22,32 @@ class ChargesController < ApplicationController
     ProductMailer.with(product: @product).sold_item.deliver_now
     @product.date_sold = DateTime.now
     @product.save
+
+    @order = Order.new
+    @order.buyer_id = current_user.id
+    @order.product_id = @product.id
+    @order.date_sold = @product.date_sold
+    @order.street_address = current_user.street_address
+    @order.postcode = current_user.postcode
+    @order.city = current_user.city
+    @order.country = current_user.country
+    @order.price = @product.price
+    @order.save
+
+    # @order.errors
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+
+  # def set_order
+  #   @order = Order.find(params[:id])
+  # end
+
+  # def order_params
+  #   params.require(:order).permit(:buyer_id, :product_id, :date_sold, :street_address, :postcode, :city, :country, :price)
+  # end
 end
