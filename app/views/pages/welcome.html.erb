@@ -15,141 +15,33 @@
 
 
 <body>
-    <div class="header_navbar">
-        <div><% if user_signed_in? %>
-        <% else %>
-            <%= link_to('Login', new_user_session_path)  %>  
-        <% end %>
-        </div>
-
-        <div><% if user_signed_in? %>
-        Welcome, <%= current_user.username %>
-            (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) 
-        <% end %>
-        </div>
-
-        <div>
-        <% if user_signed_in? %>
-        <%= link_to 'Sell Your Instrument or Accessory', new_product_path %>
-        <% end %>
-        </div>
-        
-        <div>
-        <% if user_signed_in? %>
-        <%= link_to 'Edit Your Details', edit_user_registration_path %>
-        <% end %>
-        </div>
-
-        <div><%= form_tag search_products_path do %>
-        <input class="search full-width" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off" >
-        <% end %>
-        </div>
-    </div>
+    <%= render "layouts/navbar" %>
+    <%= yield %>
 
     <section id="header" class="grid">
-       <div class="container">
-        <div class="grid">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="note_left"><%= render 'note' %></div>
-        <div class="title" style="font-family: 'Pacifico', cursive;">Don't Fret</div>
-        <div class="note_right"><%= render 'note' %></div>
-        <div class="note_left"><%= render 'note' %></div>
-        <div class="note_right"><%= render 'note' %></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-  </div>
-</div>
-
-    </section>
-
-
-            <h2 class="content-title" style='text-align: center'>Buying</h2>
-                <div class="navbar">
-                    <div class="strings_dropdown">
-                        <button class="strings_dropbtn">Strings
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="strings_dropdown-content">
-                            <a href="/strings/1">Banjo</a>
-                            <a href="/strings/2">Cello</a>
-                            <a href="/strings/3">Cittern</a>
-                            <a href="/strings/4">Guitar</a>
-                            <a href="/strings/5">Harp</a>
-                            <a href="/strings/6">Lute</a>
-                            <a href="/strings/7">Upright Bass</a>
-                            <a href="/strings/8">Viola</a>
-                            <a href="/strings/9">Violin</a>
-                        </div>
-                    </div>
-
-                    <div class="woodwind_dropdown">
-                        <button class="woodwind_dropbtn">Woodwind
-                        </button>
-                        <div class="woodwind_dropdown-content">
-                            <a href="/woodwind/10">Clarinet</a>
-                            <a href="/woodwind/11">Flute</a>
-                            <a href="/woodwind/12">Oboe</a>
-                            <a href="/woodwind/13">Pipe</a>
-                            <a href="/woodwind/14">Recorder</a>
-                            <a href="/woodwind/15">Reeds</a>
-                            <a href="/woodwind/16">Saxophone</a>
-                        </div>
-                    </div>
-
-                    <div class="percussion_dropdown">
-                        <button class="percussion_dropbtn">Percussion
-                        </button>
-                        <div class="percussion_dropdown-content">
-                            <a href="/percussion/17">Acoustic Drum Set</a>
-                            <a href="/percussion/18">Bells</a>
-                            <a href="/percussion/19">Cymbals</a>
-                            <a href="/percussion/20">Castanets</a>
-                            <a href="/percussion/21">Congas</a>
-                            <a href="/percussion/22">Electric Drum Set</a>
-                            <a href="/percussion/23">Frame Drums</a>
-                            <a href="/percussion/24">Hand Drums</a>
-                            <a href="/percussion/25">Maracas</a>
-                            <a href="/percussion/26">Xylophone</a>
-                        </div>
-                    </div>            
-                
-                    <div class="brass_dropdown">
-                        <button class="brass_dropbtn">Brass
-                        </button>
-                        <div class="brass_dropdown-content">
-                            <a href="/brass/27">Bugle</a>
-                            <a href="/brass/28">Cornet</a>
-                            <a href="/brass/29">Euphonium</a>
-                            <a href="/brass/30">Flugelhorn</a>
-                            <a href="/brass/31">Helicon</a>
-                            <a href="/brass/32">Horn</a>
-                            <a href="/brass/33">Mellophone</a>
-                            <a href="/brass/34">Trombone</a>
-                            <a href="/brass/35">Trumpet</a>
-                            <a href="/brass/36">Tuba</a>
-                        </div>
-                    </div>
-
-                    <div class="keyboard_dropdown">
-                        <button class="keyboard_dropbtn">Keyboard
-                        </button>
-                        <div class="keyboard_dropdown-content">
-                            <a href="/keyobard/37">Accordions & Concertinas</a>
-                            <a href="/keyobard/38">Harpsichord</a>
-                            <a href="/keyobard/39">Keyboard</a>
-                            <a href="/keyobard/40">Piano</a>
-                            <a href="/keyobard/41">Sound Synthesizers</a>
-                        </div>
-                    </div>
-                
-                
-                </div>
+        <div class="container">
+            <div class="grid">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="note_left"><%= render 'note' %></div>
+                <div class="title" style="font-family: 'Pacifico', cursive;">Don't Fret</div>
+                <div class="note_right"><%= render 'note' %></div>
+                <div class="note_left"><%= render 'note' %></div>
+                <div class="note_right"><%= render 'note' %></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
             </div>
+        </div>
+
     </section>
+
+    <%= render "layouts/sub-navbar" %>
+    <%= yield %>
+
+</section>
 
 </body>
