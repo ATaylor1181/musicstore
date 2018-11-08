@@ -23,3 +23,17 @@
         
     </section>
 
+
+<h3>Latest Product Listings:</h3>
+
+<div class="wrapper">
+    <% Product.all.where(date_sold:nil).last(3).each do |product| %>
+        <div class="card">
+            <%= link_to product_path(product) do %>
+                <%= image_tag product.image %>
+                <h4><div><%= product.title %></div>
+                <%= number_to_currency(product.price/100.0) %></h4>
+            <% end %>
+        </div>
+    <% end %>
+</div>
