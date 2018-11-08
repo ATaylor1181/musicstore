@@ -10,11 +10,12 @@
       Your product: <%=@product.title%>, has sold.<br>
       <%=number_to_currency(@product.price/100.0)%> has been sent to you.
     </p>
-    <p>Please send your item to *ORDER TABLE > BUYER_ID.First_name BUYER_ID.Surname now.</p>
-    Address:
-        ORDER TABLE > Street_address
-        ORDER TABLE > City
-        ORDER TABLE > Postcode  
-        ORDER TABLE > Country
+    <p>Please send your item to:</p>
+       <%=@user.name%> 
+       <br>
+       <p><%=@order.street_address%>,
+       <%=@order.city%>,
+       <%=@order.postcode%>,
+       <%=@order.country%></p>
   </body>
 </html>
