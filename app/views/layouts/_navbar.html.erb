@@ -13,7 +13,7 @@
 
         <div>
         <% if user_signed_in? %>
-        <%= link_to 'Sell Your Instrument or Accessory', "products/profile/#{current_user.id}" %>
+        <%= link_to 'Sell Your Instrument or Accessory', "/products/profile/#{current_user.id}" %>
         <% end %>
         </div>
         
@@ -24,7 +24,7 @@
         </div>
 
         <div><%= form_tag search_products_path do %>
-        <input class="search full-width" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off" >
+        <input class="search full-width text-colour" id="searchbar" name="query" placeholder="Search Products" type="text" autocomplete="off">
         <% end %>
         </div>
     </div>

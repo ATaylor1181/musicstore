@@ -82,8 +82,8 @@ class ProductsController < ApplicationController
     end
 
     def check_user
-      if "products/profile/#{current_user.id}" != "products/profile/#{params[:id]}"
-        redirect_to root_path
+      if "/products/profile/#{current_user.id}" != "/products/profile/#{params[:id]}"
+        redirect_to "/products/profile/#{current_user.id}"
       end
     end
 
