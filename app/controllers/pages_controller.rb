@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def welcome
+    @disable_header = true
   end
 
   def show

@@ -11,8 +11,10 @@
   
   <body>
     
-    <%= render "layouts/navbar" %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/header' unless @disable_header %>
     <%= yield %>
+    
 
     
 
