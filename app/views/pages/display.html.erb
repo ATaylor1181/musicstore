@@ -19,8 +19,10 @@
 	<div class="col-md-3 col-sm-4">
 	<div class="wrimagecard wrimagecard-topimage">
           <a href="#">
-          <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
-            <a href="/products/<%=product.id%>"><%= image_tag product.image%></a>
+          <div>
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.image, style: "width: 300px;" %>
+            <% end %>
           </div>
           <div class="wrimagecard-topimage_title">
             <h4><%= product.title %>
