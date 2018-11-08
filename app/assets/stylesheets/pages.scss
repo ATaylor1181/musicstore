@@ -218,3 +218,26 @@
   
   
   
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  box-shadow: 4px 3px 18px -4px rgba(0,0,0,0.75);
+  margin: 0px 6px;
+  a {
+    text-decoration: none;
+  }
+  img {
+    display: block;
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
+  }
+  h4 {
+    text-align: center;
+  }
+}
