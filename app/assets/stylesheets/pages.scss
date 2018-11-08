@@ -10,6 +10,13 @@
   html {
     overflow-y: scroll;
   }
+
+  body {
+      background-image: url('treble.png');
+      background-repeat: no-repeat;
+      background-size: 50vh;
+      background-position: right 75px;
+  }
   
   #header .grid {  
       z-index: -1;
