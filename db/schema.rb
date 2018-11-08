@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_004558) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "name"
+    t.string "phone"
     t.string "street_address"
     t.string "postcode"
     t.string "city"
