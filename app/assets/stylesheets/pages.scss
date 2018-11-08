@@ -157,7 +157,17 @@
     .keyboard_dropdown:hover .keyboard_dropdown-content {
       display: block;
     }
-  
+
+    .strings_dropdown li, .woodwind_dropdown li, .percussion_dropdown li,
+     .brass_dropdown li, .keyboard_dropdown li  {
+         list-style: none;
+     }
+
+    .subnav-col1,
+    .subnav-col2{
+        float: left;
+    }
+
     .wrimagecard{	
       margin-top: 0;
         margin-bottom: 1.5rem;
