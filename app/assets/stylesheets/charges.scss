@@ -1,3 +1,27 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .card {
+    width: 300px;
+    height: 300px;
+    box-shadow: 4px 3px 18px -4px rgba(0,0,0,0.75);
+    margin: 0px 6px;
+    a {
+      text-decoration: none;
+    }
+    img {
+      display: block;
+      height: 200px;
+      width: 70%;
+      margin: 0 auto;
+    }
+    h4 {
+      text-align: center;
+    }
+  }

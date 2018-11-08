@@ -4,6 +4,7 @@ class ChargesController < ApplicationController
   
   def create
     #lookup the product
+    @instrument = Product.all
     @product = Product.find(params[:product_id])
 
     customer = Stripe::Customer.create(
