@@ -2,16 +2,31 @@
     <strong>
         <%= @product.title %>
     </strong>
-</h2>
-
-<%= image_tag @product.image, width: '300' %>
-
-<h2>From 
+from 
     <strong>
         <%= @product.user.username %>
     </strong> 
-    For 
+    for 
     <strong>
         <%= number_to_currency(@product.price/100.0) %>
     </strong>
 </h2>
+
+<%= image_tag @product.image, width: '300' %>
+
+<h3>You might also be interested in our latest product listings:</h3>
+
+<div class="wrapper">
+    <% Product.all.where(date_sold:nil).last(3).each do |product| %>
+        <div class="card">
+            <%= link_to product_path(product) do %>
+                <%= image_tag product.image %>
+                <h4><div><%= product.title %></div>
+                <%= number_to_currency(product.price/100.0) %></h4>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+
+    
