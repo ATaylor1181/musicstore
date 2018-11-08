@@ -1,6 +1,6 @@
 **Music Store**
 ===========
-[Website](https://safe-lake-72049.herokuapp.com/)
+[Website](safe-lake-72049.herokuapp.com)
 
 [GitHub Repo](https://github.com/ATaylor1181/musicstore)
 
@@ -11,23 +11,27 @@ Allows users to sign up and start either selling their own musical products, or 
 ---
 Users will be able to Buy and Sell Musical related items from our two-sided marketplace once they sign up.
 
-![Sign Up Pic]()
+![Sign Up Pic](./app/assets/images/signup.png)
 
-![Sell Item Pic]()
+![Sell Item Pic](./app/assets/images/sell.png)
 
 Users will also be able to browse through our Marketplace to see all we have on offer.
 
-![Browsing Picture]()
-
-![Search Bar]()
+![Browsing Picture](./app/assets/images/browse.png)
 
 Make a Purchase through Stripe.
 
-![Payment]()
+![Payment](./app/assets/images/stripe.png)
 
-With a Confirmation Email.
+With a Confirmation Email to both Buyer and Seller.
 
-![Comfirmation Email]()
+![Buyer Comfirmation Email](./app/assets/images/buyer.png)
+
+![Seller Comfirmation Email](./app/assets/images/seller.png)
+
+Users will also see their own product listings.
+
+![Users product listings](./app/assets/images/listings.png)
 
 
 
@@ -146,7 +150,11 @@ When a User is new to our marketplace app, they can signs up, it'll make an inst
 We have a Welcome page when a user first enters our marketplace, and from there they will see the nav bar which will have the 5 instrument families: String, Keyboard, Percussion, Brass and Woodwind. They will be able to hover over the nav bar and links will appear. They will be able to click on any one of those links, and it'll redirect them to show all listings for the instrument they clicked on. From there they can browse the listings and then click on one, and see extra information about it, and they will be presented with an option to purchase the item.
 
 **9. Explain the different high-level components (abstractions) in your App.**  
-
+**Devise** - Devise helps us handle and store sensitive information like user's passwords.  
+**Amazon S3** - Amazon S3 Service helps us store images that users upload to our marketplace.  
+**reCaptcha** - Googles reCaptcha API and the reCaptcha gem allows us to put in a reCaptcha tick box to stop bots from signing up.  
+**Stripe** - Stripe handles the payments, when the user purchases the item.
+**dotenv** - dotenv allows us to store out API keys in our local environment, so that no one else has access to them.
 
 **10. Detail any third party services that your App will use.**  
 Our app will use these:  
@@ -197,13 +205,15 @@ We created a Trello board that has all the things we want to achieve and all the
 We come together everyday to discuss where each of us are up to in the project, what each of use are currently doing, and talk about what we want to accomplish by the end of the day. That way we know what everyone else in the group is doing so we don't double up on tasks. We also use a Trell Board to help us allocate tasks to ourselves and to let the rest of the team know what we are doing when we work on our marketplace when we aren't together in one room. 
 
 **19. Provide an overview and description of your Source control process.**  
-
+We used GitHub to create branches that we pushed and merged to the master file. GitHub helped us keep track of what has been merged to our main file.
 
 **20. Provide an overview and description of your Testing process.**  
-
+We made sure that before we pushed our new feature up to GitHub to be merged, we tested it. After every new feature we merged into the master file on GitHub, we pulled the latest version and then ran a test to make sure that the new feature didn't break any of the other features.
 
 **21. Discuss and analyse requirements related to information system security.**  
-
+Thanks to both **Devise** and **Stripe** gems they handle most the sensitive information about the user.   
+Devise handles the passwords to the user's accounts.  
+Stripe deals with users credit card details, so we wont have to worry about storing their payment details to our database.
 
 **22. Discuss methods you will use to protect information and data.**  
 We used Devise to allow users to be able to list and buy products from our app. If they dont sign in, they can only browse at our store, but will be unable to sell or buy products. Devise will be able to handle the security of passwords. We also use Stripe for our purchases, and stripe will handle all sensitive information users provide when purchasing an item.
