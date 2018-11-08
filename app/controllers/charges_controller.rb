@@ -19,20 +19,22 @@ class ChargesController < ApplicationController
     )
 
     ProductMailer.with(user: current_user, product: @product).new_purchase.deliver_now
-    ProductMailer.with(product: @product).sold_item.deliver_now
     @product.date_sold = DateTime.now
     @product.save
 
-    @order = Order.new
-    @order.buyer_id = current_user.id
-    @order.product_id = @product.id
-    @order.date_sold = @product.date_sold
-    @order.street_address = current_user.street_address
-    @order.postcode = current_user.postcode
-    @order.city = current_user.city
-    @order.country = current_user.country
-    @order.price = @product.price
-    @order.save
+    order = Order.new
+    order.buyer_id = current_user.id
+    order.product_id = @product.id
+    order.date_sold = @product.date_sold
+    order.street_address = current_user.street_address
+    order.postcode = current_user.postcode
+    order.city = current_user.city
+    order.country = current_user.country
+    order.price = @product.price
+    order.save
+
+    @order = Order.find_by_product_id(params[:product_id])
+    ProductMailer.with(product: @product, order: @order, user: current_user).sold_item.deliver_now
   
   rescue Stripe::CardError => e
     flash[:error] = e.message

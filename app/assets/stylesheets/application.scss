@@ -1,12 +1,10 @@
 @import "note";
+@import "pages";
+@import "_navbar";
 
-body{
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+h2 {
+    text-decoration: none;
 }
 
-ul {
-  li{
-    list-style-type: none;
-  }
-  
-
-}

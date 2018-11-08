@@ -1,6 +1,6 @@
 **Music Store**
 ===========
-[Website](https://gory-vault-94089.herokuapp.com)
+[Website](https://safe-lake-72049.herokuapp.com/)
 
 [GitHub Repo](https://github.com/ATaylor1181/musicstore)
 

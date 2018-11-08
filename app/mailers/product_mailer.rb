@@ -7,6 +7,8 @@ class ProductMailer < ApplicationMailer
 
     def sold_item
         @product = params[:product]
+        @order = params[:order]
+        @user = params[:user]
         mail(to: @product.user.email, subject: 'You have sold an item!')
     end
 end

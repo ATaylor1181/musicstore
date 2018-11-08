@@ -1,25 +1,6 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Pacifico');
-    </style>
-
-    <title>Music Store</title>
-       
-
-</head>
 
 
-
-<body>
-
-    <%= render "layouts/navbar" %>
-    <%= yield %>
-
-    <section id="header" class="grid">
+     <section id="header" class="grid">
         <div class="container">
             <div class="grid">
                 <div class="box"></div>
@@ -38,11 +19,7 @@
             </div>
         </div>
 
+        <%= render 'layouts/sub-navbar' %>
+        
     </section>
 
-    <%= render "layouts/sub-navbar" %>
-    <%= yield %>
-
-</section>
-
-</body>
