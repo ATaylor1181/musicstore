@@ -1,6 +1,6 @@
 **Music Store**
 ===========
-[Website](safe-lake-72049.herokuapp.com)
+[Website](https://safe-lake-72049.herokuapp.com)
 
 [GitHub Repo](https://github.com/ATaylor1181/musicstore)
 
