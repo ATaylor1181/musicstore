@@ -3,12 +3,18 @@
 
 <% if @products.where(user_id:params[:id]).count != 0 %>
     <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Price</th>
+            </tr>
+        </thead>
         <tbody>
             <% @products.where(user_id:params[:id]).each do |product| %>
                 <tr>
                     <td><%= product.title %></td>
-                    <td><%= product.description %></td>
-                    <td><a href="/products/<%= product.id %>"><%= image_tag product.image, width: '100' %></a></td>
+                    <td><a href="products/<%= product.id %>"><%= image_tag product.image, width: '100' %></a></td>
                     <td><%= number_to_currency(product.price/100.0) %></td>
                     <% if user_signed_in? %>
                         <% if product.date_sold == nil %>
