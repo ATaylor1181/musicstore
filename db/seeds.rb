@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Category.delete_all
-# Subcategory.delete_all
+ Subcategory.delete_all
+ Category.delete_all
+
 
 
 string_instrument = Category.create( family: "String")
